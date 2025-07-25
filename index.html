@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>منيو كافيه نايت</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
@@ -12,50 +12,51 @@
       background-color: #0d1b2a;
       color: #ffffff;
     }
-
     .menu-container {
       max-width: 1000px;
       margin: auto;
       padding: 40px 20px;
     }
-
     h1 {
       text-align: center;
       font-size: 40px;
       margin-bottom: 40px;
       color: #00bcd4;
     }
-
     .menu-columns {
       display: flex;
       flex-wrap: wrap;
       gap: 30px;
     }
-
     .column {
       flex: 1;
-      min-width: 250px;
+      min-width: 300px;
     }
-
     h2 {
       color: #ffc107;
       border-bottom: 1px solid #555;
       padding-bottom: 10px;
       margin-bottom: 20px;
     }
-
     .item {
+      border-bottom: 1px dashed #555;
+      padding-bottom: 15px;
+      margin-bottom: 20px;
+    }
+    .item img {
+      width: 100%;
+      max-height: 160px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    .info {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 15px;
-      border-bottom: 1px dashed #555;
-      padding-bottom: 5px;
     }
-
-    .item span {
+    .info span {
       font-size: 16px;
     }
-
     .price {
       color: #ccc;
     }
@@ -65,26 +66,53 @@
   <div class="menu-container">
     <h1>منيو كافيه نايت</h1>
     <div class="menu-columns">
-      
+
       <div class="column">
         <h2>مشروبات ساخنة</h2>
-        <div class="item"><span>قهوة تركي</span><span class="price">15 جنيه</span></div>
-        <div class="item"><span>لاتيه</span><span class="price">18 جنيه</span></div>
-        <div class="item"><span>كابتشينو</span><span class="price">20 جنيه</span></div>
+        <div class="item">
+          <img src="https://source.unsplash.com/300x200/?turkish-coffee" alt="قهوة تركي" />
+          <div class="info"><span>قهوة تركي</span><span class="price">15 جنيه</span></div>
+        </div>
+        <div class="item">
+          <img src="https://source.unsplash.com/300x200/?latte" alt="لاتيه" />
+          <div class="info"><span>لاتيه</span><span class="price">18 جنيه</span></div>
+        </div>
+        <div class="item">
+          <img src="https://source.unsplash.com/300x200/?cappuccino" alt="كابتشينو" />
+          <div class="info"><span>كابتشينو</span><span class="price">20 جنيه</span></div>
+        </div>
       </div>
 
       <div class="column">
         <h2>مشروبات باردة</h2>
-        <div class="item"><span>عصير برتقال</span><span class="price">22 جنيه</span></div>
-        <div class="item"><span>فرابتشينو</span><span class="price">28 جنيه</span></div>
-        <div class="item"><span>كوكتيل فواكه</span><span class="price">30 جنيه</span></div>
+        <div class="item">
+          <img src="https://source.unsplash.com/300x200/?orange-juice" alt="عصير برتقال" />
+          <div class="info"><span>عصير برتقال</span><span class="price">22 جنيه</span></div>
+        </div>
+        <div class="item">
+          <img src="https://source.unsplash.com/300x200/?frappuccino" alt="فرابتشينو" />
+          <div class="info"><span>فرابتشينو</span><span class="price">28 جنيه</span></div>
+        </div>
+        <div class="item">
+          <img src="https://source.unsplash.com/300x200/?cocktail" alt="كوكتيل فواكه" />
+          <div class="info"><span>كوكتيل فواكه</span><span class="price">30 جنيه</span></div>
+        </div>
       </div>
 
       <div class="column">
         <h2>حلويات</h2>
-        <div class="item"><span>وافل نوتيلا</span><span class="price">35 جنيه</span></div>
-        <div class="item"><span>تشيز كيك</span><span class="price">38 جنيه</span></div>
-        <div class="item"><span>مولتن كيك</span><span class="price">40 جنيه</span></div>
+        <div class="item">
+          <img src="https://source.unsplash.com/300x200/?waffle" alt="وافل نوتيلا" />
+          <div class="info"><span>وافل نوتيلا</span><span class="price">35 جنيه</span></div>
+        </div>
+        <div class="item">
+          <img src="https://source.unsplash.com/300x200/?cheesecake" alt="تشيز كيك" />
+          <div class="info"><span>تشيز كيك</span><span class="price">38 جنيه</span></div>
+        </div>
+        <div class="item">
+          <img src="https://source.unsplash.com/300x200/?chocolate-cake" alt="مولتن كيك" />
+          <div class="info"><span>مولتن كيك</span><span class="price">40 جنيه</span></div>
+        </div>
       </div>
 
     </div>
