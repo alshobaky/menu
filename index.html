@@ -69,29 +69,48 @@
 
   <div class="form-box">
     <form id="exchangeForm">
+      <label>الاسم:</label>
+      <input type="text" id="name" placeholder="اسمك" required />
+
+      <label>رقم التواصل:</label>
+      <input type="text" id="phone" placeholder="مثال: 01000000000" required />
+
       <label>نوع العملية:</label>
-      <select name="type">
-        <option value="buy">شراء USDT</option>
-        <option value="sell">بيع USDT</option>
+      <select id="type">
+        <option value="شراء USDT">شراء USDT</option>
+        <option value="بيع USDT">بيع USDT</option>
       </select>
 
-      <label>المبلغ (USDT أو جنيه):</label>
-      <input type="number" name="amount" placeholder="اكتب المبلغ" required />
+      <label>المبلغ:</label>
+      <input type="number" id="amount" placeholder="اكتب المبلغ" required />
 
-      <label>ارفع سكرين شوت للتحويل:</label>
+      <label>ارفع سكرين شوت (سيتم إرسالها يدويًا):</label>
       <input type="file" accept="image/*" required />
 
-      <button type="submit">إرسال الطلب</button>
+      <button type="submit">تم الدفع</button>
     </form>
   </div>
 
   <div class="contact-info">
-    <p>📱 فودافون كاش: <strong>01093419757</strong></p>
+    <p>📱 فودافون كاش: <strong>01000000000000000</strong></p>
     <p>🪙 محفظة USDT: <strong>oiprejoprjopeijrioejhiopr</strong></p>
-    <a href="https://wa.me/201093419757?text=مرحبًا، أود تنفيذ عملية تبادل USDT" target="_blank">
-      <button style="background-color:#25d366">راسلنا عبر واتساب</button>
-    </a>
   </div>
+
+  <script>
+    document.getElementById("exchangeForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const phone = document.getElementById("phone").value;
+      const type = document.getElementById("type").value;
+      const amount = document.getElementById("amount").value;
+
+      const message = `مرحبًا، أنا ${name}%0Aرقمي: ${phone}%0Aأرغب في ${type}%0Aبمبلغ: ${amount}%0Aوقد قمت بالدفع وأرفقت صورة التحويل.`;
+
+      const whatsappNumber = "201000000000"; // غيّر الرقم هنا لرقمك الحقيقي (بدون + وابدأ بـ 20)
+      const whatsappLink = `https://wa.me/${whatsappNumber}?text=${message}`;
+      window.open(whatsappLink, "_blank");
+    });
+  </script>
 
 </body>
 </html>
