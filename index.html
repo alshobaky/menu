@@ -3,27 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>منيو كافيه</title>
+  <title>منيو كافيه تجريبي</title>
   <style>
-    body { font-family: 'Arial'; padding: 20px; background: #fefefe; direction: rtl; }
-    h1 { color: #c0392b; text-align: center; }
-    .item { margin-bottom: 15px; border-bottom: 1px solid #ccc; padding-bottom: 10px; }
-    .price { float: left; color: #555; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f8f8;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+      direction: rtl;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #c0392b;
+      margin-bottom: 30px;
+    }
+    h2 {
+      border-bottom: 2px solid #c0392b;
+      padding-bottom: 5px;
+      margin-top: 30px;
+    }
+    .item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px dashed #ccc;
+    }
+    .item:last-child {
+      border-bottom: none;
+    }
+    .name {
+      font-weight: bold;
+    }
+    .price {
+      color: #666;
+    }
   </style>
 </head>
 <body>
-  <h1>منيو كافيه روز</h1>
-  <div class="item">
-    <strong>لاتيه</strong>
-    <span class="price">20 جنيه</span>
-  </div>
-  <div class="item">
-    <strong>كابتشينو</strong>
-    <span class="price">18 جنيه</span>
-  </div>
-  <div class="item">
-    <strong>تشيز كيك</strong>
-    <span class="price">35 جنيه</span>
+  <div class="container">
+    <h1>منيو كافيه روز</h1>
+
+    <h2>☕ المشروبات الساخنة</h2>
+    <div class="item"><span class="name">قهوة تركي</span><span class="price">15 جنيه</span></div>
+    <div class="item"><span class="name">كابتشينو</span><span class="price">18 جنيه</span></div>
+    <div class="item"><span class="name">لاتيه</span><span class="price">20 جنيه</span></div>
+    <div class="item"><span class="name">شاي نعناع</span><span class="price">10 جنيه</span></div>
+
+    <h2>🥤 المشروبات الباردة</h2>
+    <div class="item"><span class="name">عصير مانجو</span><span class="price">25 جنيه</span></div>
+    <div class="item"><span class="name">كوكتيل فواكه</span><span class="price">28 جنيه</span></div>
+    <div class="item"><span class="name">فرابتشينو</span><span class="price">30 جنيه</span></div>
+
+    <h2>🍽️ أطباق رئيسية</h2>
+    <div class="item"><span class="name">فاهيتا فراخ</span><span class="price">65 جنيه</span></div>
+    <div class="item"><span class="name">باستا وايت صوص</span><span class="price">60 جنيه</span></div>
+    <div class="item"><span class="name">برجر لحم</span><span class="price">50 جنيه</span></div>
+
+    <h2>🍰 الحلويات</h2>
+    <div class="item"><span class="name">تشيز كيك فراولة</span><span class="price">35 جنيه</span></div>
+    <div class="item"><span class="name">مولتن كيك</span><span class="price">40 جنيه</span></div>
+    <div class="item"><span class="name">وافل بالنوتيلا</span><span class="price">38 جنيه</span></div>
   </div>
 </body>
 </html>
