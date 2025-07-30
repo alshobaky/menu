@@ -4,11 +4,18 @@
   <meta charset="UTF-8" />
   <title>موقعي الشخصي مع شريط أخبار</title>
   <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
+
     .news-ticker {
       width: 100%;
       overflow: hidden;
       background: #007BFF;       /* خلفية زرقاء */
-      padding: 20px 0;           /* زيادة ارتفاع الشريط */
+      padding: 20px 0;
+      text-align: center;
     }
 
     .ticker-text {
@@ -16,38 +23,65 @@
       white-space: nowrap;
       animation: scroll-left 12s linear infinite;
       font-weight: bold;
-      font-size: 1.5rem;         /* تكبير حجم الخط */
-      color: #ffffff;            /* نص أبيض */
+      font-size: 1.5rem;
+      color: #ffffff;
     }
 
     @keyframes scroll-left {
       0%   { transform: translateX(100%); }
       100% { transform: translateX(-100%); }
     }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: calc(100vh - 100px); /* طرح ارتفاع شريط الأخبار */
+      text-align: center;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 25px;
+      font-size: 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: white;
+    }
+
+    .call-btn {
+      background-color: #28a745;
+    }
+
+    .facebook-btn {
+      background-color: #1877F2;
+    }
   </style>
 </head>
 <body>
 
+  <!-- شريط الأخبار -->
   <div class="news-ticker">
     <div class="ticker-text">
       📢 أهلاً بك في موقعي الشخصي! &nbsp;|&nbsp; خبر رقم 1 &nbsp;|&nbsp; خبر رقم 2 &nbsp;|&nbsp; خبر رقم 3
     </div>
   </div>
 
-  <!-- باقي محتوى الموقع -->
-  <div style="padding: 2rem;">
+  <!-- المحتوى في المنتصف عموديًا -->
+  <div class="content">
     <h1>مرحباً!</h1>
     <p>هذا مثال على موقع شخصي بسيط.</p>
+
+    <a href="tel:01111111111" class="btn call-btn">
+      📞 اتصل بنا الآن
+    </a>
+
+    <a href="https://www.facebook.com/YourPageUsername" target="_blank" class="btn facebook-btn">
+      👍 تابعنا على فيسبوك
+    </a>
   </div>
 
 </body>
 </html>
-
-<a href="tel:01111111111" style="display: inline-block; background-color: #28a745; color: white; padding: 10px 20px; text-decoration: none; border-radius: 8px; font-size: 18px;">
-  📞 اتصل بنا الآن
-</a>
-
-<a href="https://www.facebook.com/YourPageUsername" target="_blank"
-   style="display: inline-block; background-color: #1877F2; color: white; padding: 12px 25px; text-decoration: none; border-radius: 8px; font-size: 18px;">
-  👍 تابعنا على فيسبوك
-</a>
