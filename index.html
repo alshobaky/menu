@@ -1,28 +1,44 @@
-<div class="news-ticker">
-  <div class="ticker-text">
-    📢 أهلاً بك في موقعي الشخصي! | خبر رقم 1 | خبر رقم 2 | خبر رقم 3
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <title>موقعي الشخصي مع شريط أخبار</title>
+  <style>
+    .news-ticker {
+      width: 100%;
+      overflow: hidden;
+      background: #007BFF;       /* خلفية زرقاء */
+      padding: 20px 0;           /* زيادة ارتفاع الشريط */
+    }
+
+    .ticker-text {
+      display: inline-block;
+      white-space: nowrap;
+      animation: scroll-left 12s linear infinite;
+      font-weight: bold;
+      font-size: 1.5rem;         /* تكبير حجم الخط */
+      color: #ffffff;            /* نص أبيض */
+    }
+
+    @keyframes scroll-left {
+      0%   { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="news-ticker">
+    <div class="ticker-text">
+      📢 أهلاً بك في موقعي الشخصي! &nbsp;|&nbsp; خبر رقم 1 &nbsp;|&nbsp; خبر رقم 2 &nbsp;|&nbsp; خبر رقم 3
+    </div>
   </div>
-</div>
 
-<style>
-.news-ticker {
-  width: 100%;
-  overflow: hidden;
-  background: #f9f9f9;
-  border: 1px solid #ddd;
-  padding: 10px 0;
-}
+  <!-- باقي محتوى الموقع -->
+  <div style="padding: 2rem;">
+    <h1>مرحباً!</h1>
+    <p>هذا مثال على موقع شخصي بسيط.</p>
+  </div>
 
-.ticker-text {
-  display: inline-block;
-  white-space: nowrap;
-  animation: scroll-left 15s linear infinite;
-  font-weight: bold;
-  color: #333;
-}
-
-@keyframes scroll-left {
-  0%   { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
-}
-</style>
+</body>
+</html>
