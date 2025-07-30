@@ -1,116 +1,28 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>تبادل العملات - USDT ⇆ جنيه</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      padding: 20px;
-      font-family: 'Cairo', sans-serif;
-      background-color: #ffffff;
-      color: #000000;
-      text-align: center;
-    }
-
-    h1 {
-      margin-bottom: 10px;
-      font-size: 28px;
-    }
-
-    .rate-box {
-      background-color: #008fc4;
-      border-radius: 30px;
-      padding: 15px;
-      margin: 20px auto;
-      max-width: 400px;
-    }
-
-    .form-box {
-      background-color: #008fc4;
-      border: 1px solid #ddd;
-      padding: 20px;
-      border-radius: 40px;
-      max-width: 500px;
-      margin: auto;
-    }
-
-    input, select, button {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 20px;
-      font-family: 'Cairo', sans-serif;
-    }
-
-    button {
-      background-color: #28a745;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .contact-info {
-      margin-top: 30px;
-    }
-  </style>
-</head>
-<body>
-
-  <h1>تبادل العملات - USDT ⇆ جنيه مصري</h1>
-
-  <div class="rate-box">
-    <p>💵 سعر الشراء منك: <strong>48.5 جنيه</strong> لكل 1 USDT</p>
-    <p>💰 سعر البيع لك: <strong>50 جنيه</strong> لكل 1 USDT</p>
+<div class="news-ticker">
+  <div class="ticker-text">
+    📢 أهلاً بك في موقعي الشخصي! | خبر رقم 1 | خبر رقم 2 | خبر رقم 3
   </div>
+</div>
 
-  <div class="form-box">
-    <form id="exchangeForm">
-      <label>الاسم:</label>
-      <input type="text" id="name" placeholder="اسمك" required />
+<style>
+.news-ticker {
+  width: 100%;
+  overflow: hidden;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 10px 0;
+}
 
-      <label>رقم التواصل:</label>
-      <input type="text" id="phone" placeholder="مثال: 01000000000" required />
+.ticker-text {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scroll-left 15s linear infinite;
+  font-weight: bold;
+  color: #333;
+}
 
-      <label>نوع العملية:</label>
-      <select id="type">
-        <option value="شراء USDT">شراء USDT</option>
-        <option value="بيع USDT">بيع USDT</option>
-      </select>
-
-      <label>المبلغ:</label>
-      <input type="number" id="amount" placeholder="اكتب المبلغ" required />
-
-      <label>ارفع سكرين شوت (سيتم إرسالها يدويًا):</label>
-      <input type="file" accept="image/*" required />
-
-      <button type="submit">تم الدفع</button>
-    </form>
-  </div>
-
-  <div class="contact-info">
-    <p>📱 فودافون كاش: <strong>01093419757</strong></p>
-    <p>🪙 محفظة USDT: <strong>ABCDEFGH</strong></p>
-  </div>
-
-  <script>
-    document.getElementById("exchangeForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      const name = document.getElementById("name").value;
-      const phone = document.getElementById("phone").value;
-      const type = document.getElementById("type").value;
-      const amount = document.getElementById("amount").value;
-
-      const message = `مرحبًا، أنا ${name}%0Aرقمي: ${phone}%0Aأرغب في ${type}%0Aبمبلغ: ${amount}%0Aوقد قمت بالدفع وأرفقت صورة التحويل.`;
-
-      const whatsappNumber = "201093419757"; // غيّر الرقم هنا لرقمك الحقيقي (بدون + وابدأ بـ 20)
-      const whatsappLink = `https://wa.me/${whatsappNumber}?text=${message}`;
-      window.open(whatsappLink, "_blank");
-    });
-  </script>
-
-</body>
-</html>
+@keyframes scroll-left {
+  0%   { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+</style>
