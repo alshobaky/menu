@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>منيو المطعم</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="topbar">
+        <div>
+          <div class="logo">🍽️ منيو المطعم</div>
+          <p class="subtitle">واجهة لعرض المنيو + لوحة تحكم لإضافة/تعديل الأصناف (تخزين محلي)</p>
+        </div>
+        <div class="toolbar">
+          <button class="btn" id="btnImport">استيراد JSON</button>
+          <button class="btn" id="btnExport">تصدير JSON</button>
+          <button class="btn warn" id="btnAdmin">وضع الإدارة</button>
+        </div>
+      </div>
+
+      <div class="row" style="margin-top:10px">
+        <div class="search">
+          <input id="search" placeholder="ابحث باسم الصنف أو الوصف..." />
+          <button class="btn" id="clearSearch">مسح</button>
+        </div>
+        <div id="chips" class="row"></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="grid" class="grid"></div>
+    <div id="empty" class="empty" style="display:none">لا توجد أصناف مطابقة حاليًا.</div>
+  </main>
+
+  <button class="fab" id="fab" title="إضافة صنف">+ إضافة صنف</button>
+
+  <!-- Modal: Add/Edit Item -->
+  <dialog id="itemModal">
+    <form method="dialog" id="itemForm">
+      <h3 style="margin:0 0 10px">تفاصيل الصنف</h3>
+      <div class="form">
+        <div>
+          <label>اسم الصنف</label>
+          <input id="f_name" required />
+        </div>
+        <div>
+          <label>السعر</label>
+          <input id="f_price" type="number" step="0.01" min="0" required />
+        </div>
+        <div class="full">
+          <label>الوصف</label>
+          <textarea id="f_desc" placeholder="وصف قصير"></textarea>
+        </div>
+        <div>
+          <label>القسم (كاتيجوري)</label>
+          <input id="f_cat" list="catsList" placeholder="مثال: ساندويتشات" />
+          <datalist id="catsList"></datalist>
+        </div>
+        <div>
+          <label>رابط صورة (اختياري)</label>
+          <input id="f_img" placeholder="https://..." />
+        </div>
+        <div class="full">
+          <label>حالة العنصر</label>
+          <select id="f_status">
+            <option value="available">متاح</option>
+            <option value="soldout">غير متاح</option>
+            <option value="hidden">مخفي</option>
+          </select>
+        </div>
+      </div>
+      <div class="toolbar" style="justify-content:flex-end;margin-top:12px">
+        <button class="btn" value="cancel">إلغاء</button>
+        <button class="btn accent" id="saveItem" value="default">حفظ</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Simple PIN Modal -->
+  <dialog id="pinModal">
+    <form method="dialog" id="pinForm">
+      <h3 style="margin:0 0 10px">أدخل رمز الإدارة</h3>
+      <input id="pinInput" placeholder="الرمز الافتراضي 1234" />
+      <div class="toolbar" style="justify-content:flex-end;margin-top:12px">
+        <button class="btn" value="cancel">إلغاء</button>
+        <button class="btn accent" value="default">تأكيد</button>
+      </div>
+    </form>
+  </dialog>
+
+  <input type="file" id="filePicker" accept="application/json" hidden />
+
+  <script src="script.js"></script>
+</body>
+</html>
