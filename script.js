@@ -5,7 +5,7 @@ const ADMIN_KEY = 'is_admin_v2';
 const ADMIN_PIN = localStorage.getItem('admin_pin') || '1234';
 
 const defaultConfig = {
-  waNumber: '201234567890',
+  waNumber: '201093419757',
   logoPos: 'left',
   logoDataUrl: '' // base64
 };
@@ -333,7 +333,7 @@ function fileToDataUrl(file){
 // ====== Floating Buttons ======
 waFloat.addEventListener('click', (e)=>{
   e.preventDefault();
-  const wa = (config.waNumber||'201234567890').replace(/[^0-9]/g,'');
+  const wa = (config.waNumber||'201093419757').replace(/[^0-9]/g,'');
   const url = `https://wa.me/${wa}`;
   window.open(url, '_blank');
 });
