@@ -210,15 +210,20 @@ function updateAdminUI(){
 }
 hamburger.addEventListener('click', ()=> menuDropdown.classList.toggle('show') );
 
-loginBtn.addEventListener('click', ()=> { loginModal.showModal(); menuDropdown.classList.remove('show'); });
-// fix cancel bug: close without validation
+loginBtn.addEventListener('click', ()=> { 
+  loginModal.showModal(); 
+  menuDropdown.classList.remove('show'); 
+});
 loginForm.addEventListener('submit', (e)=>{
   e.preventDefault();
   const pin = document.getElementById('pinInput').value || '';
-  if(pin === ADMIN_PIN){ setAdmin(true); loginModal.close(); }
+  if(pin === ADMIN_PIN){ 
+    setAdmin(true); 
+    loginModal.close(); 
+  }
   else { alert('رمز غير صحيح'); }
 });
-document.getElementById('loginCancel').addEventListener('click', ()=> { loginModal.close(); });
+loginCancel.addEventListener('click', ()=> { loginModal.close(); });
 
 logoutBtn.addEventListener('click', ()=>{
   setAdmin(false);
@@ -327,8 +332,10 @@ function fileToDataUrl(file){
 
 // ====== Floating Buttons ======
 waFloat.addEventListener('click', (e)=>{
+  e.preventDefault();
   const wa = (config.waNumber||'201234567890').replace(/[^0-9]/g,'');
-  waFloat.href = `https://wa.me/${wa}`;
+  const url = `https://wa.me/${wa}`;
+  window.open(url, '_blank');
 });
 scrollTopBtn.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}) );
 
