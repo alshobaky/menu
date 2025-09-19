@@ -7,93 +7,45 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <div class="container">
-      <div class="topbar">
-        <div>
-          <div class="logo">🍽️ منيو المطعم</div>
-          <p class="subtitle">واجهة لعرض المنيو + لوحة تحكم لإضافة/تعديل الأصناف (تخزين محلي)</p>
+  <header class="header">
+    <div class="container topbar">
+      <div class="left-group"><img id="logo" class="logo" alt="شعار المطعم" /></div>
+      <div class="right-group">
+        <div class="cart-pill" id="cartPill"><span>السلة:</span><strong id="cartTotal">0.00</strong><span>ج.م</span></div>
+        <div class="menu">
+          <button id="hamburger" class="hamburger">☰</button>
+          <div id="menuDropdown" class="menu-dropdown">
+            <button id="loginBtn" class="menu-item primary">تسجيل الدخول</button>
+            <button id="settingsBtn" class="menu-item" style="display:none">الإعدادات</button>
+            <button id="logoutBtn" class="menu-item danger" style="display:none">تسجيل الخروج</button>
+          </div>
         </div>
-        <div class="toolbar">
-          <button class="btn" id="btnImport">استيراد JSON</button>
-          <button class="btn" id="btnExport">تصدير JSON</button>
-          <button class="btn warn" id="btnAdmin">وضع الإدارة</button>
-        </div>
-      </div>
-
-      <div class="row" style="margin-top:10px">
-        <div class="search">
-          <input id="search" placeholder="ابحث باسم الصنف أو الوصف..." />
-          <button class="btn" id="clearSearch">مسح</button>
-        </div>
-        <div id="chips" class="row"></div>
       </div>
     </div>
+    <div class="container tools">
+      <div class="search"><input id="search" placeholder="ابحث..." /><button class="btn" id="clearSearch">مسح</button></div>
+      <div id="chips" class="row"></div>
+    </div>
   </header>
+  <main class="container"><div id="grid" class="grid"></div><div id="empty" class="empty" style="display:none">لا توجد أصناف</div></main>
+  <div id="cartBar" class="cart-bar" style="display:none"><div class="cart-summary"><span>الإجمالي:</span><strong id="cartSum">0.00</strong><span>ج.م</span></div><button id="checkoutBtn" class="btn primary">إرسال الطلب</button></div>
+  <button class="fab" id="fab" style="display:none">+ إضافة صنف</button>
 
-  <main class="container">
-    <div id="grid" class="grid"></div>
-    <div id="empty" class="empty" style="display:none">لا توجد أصناف مطابقة حاليًا.</div>
-  </main>
+  <dialog id="itemModal"><form method="dialog" id="itemForm"><h3>تفاصيل الصنف</h3><div class="form">
+    <div><label>اسم</label><input id="f_name" required /></div>
+    <div><label>سعر</label><input id="f_price" type="number" min="0" required /></div>
+    <div class="full"><label>وصف</label><textarea id="f_desc"></textarea></div>
+    <div><label>قسم</label><input id="f_cat" list="catsList" /></div><datalist id="catsList"></datalist>
+    <div class="full"><label>صورة</label><input id="f_imgFile" type="file" accept="image/*" /><img id="preview" class="preview" /></div>
+    <div class="full"><label>حالة</label><select id="f_status"><option value="available">متاح</option><option value="soldout">غير متاح</option><option value="hidden">مخفي</option></select></div>
+  </div><div class="toolbar"><button class="btn" value="cancel">إلغاء</button><button class="btn primary" value="default">حفظ</button></div></form></dialog>
 
-  <button class="fab" id="fab" title="إضافة صنف">+ إضافة صنف</button>
+  <dialog id="loginModal"><form method="dialog" id="loginForm"><h3>تسجيل الدخول</h3><input id="pinInput" type="password" /><div class="toolbar"><button class="btn" value="cancel">إلغاء</button><button class="btn primary" value="default">دخول</button></div></form></dialog>
 
-  <!-- Modal: Add/Edit Item -->
-  <dialog id="itemModal">
-    <form method="dialog" id="itemForm">
-      <h3 style="margin:0 0 10px">تفاصيل الصنف</h3>
-      <div class="form">
-        <div>
-          <label>اسم الصنف</label>
-          <input id="f_name" required />
-        </div>
-        <div>
-          <label>السعر</label>
-          <input id="f_price" type="number" step="0.01" min="0" required />
-        </div>
-        <div class="full">
-          <label>الوصف</label>
-          <textarea id="f_desc" placeholder="وصف قصير"></textarea>
-        </div>
-        <div>
-          <label>القسم (كاتيجوري)</label>
-          <input id="f_cat" list="catsList" placeholder="مثال: ساندويتشات" />
-          <datalist id="catsList"></datalist>
-        </div>
-        <div>
-          <label>رابط صورة (اختياري)</label>
-          <input id="f_img" placeholder="https://..." />
-        </div>
-        <div class="full">
-          <label>حالة العنصر</label>
-          <select id="f_status">
-            <option value="available">متاح</option>
-            <option value="soldout">غير متاح</option>
-            <option value="hidden">مخفي</option>
-          </select>
-        </div>
-      </div>
-      <div class="toolbar" style="justify-content:flex-end;margin-top:12px">
-        <button class="btn" value="cancel">إلغاء</button>
-        <button class="btn accent" id="saveItem" value="default">حفظ</button>
-      </div>
-    </form>
-  </dialog>
+  <dialog id="settingsModal"><form method="dialog" id="settingsForm"><h3>إعدادات</h3><label>واتساب</label><input id="waNumber" /><label>مكان اللوجو</label><select id="logoPos"><option value="left">يسار</option><option value="center">وسط</option><option value="right">يمين</option></select><label>لوجو</label><input id="logoFile" type="file" accept="image/*" /><div class="toolbar"><button class="btn" value="cancel">إلغاء</button><button class="btn primary" value="default">حفظ</button></div></form></dialog>
 
-  <!-- Simple PIN Modal -->
-  <dialog id="pinModal">
-    <form method="dialog" id="pinForm">
-      <h3 style="margin:0 0 10px">أدخل رمز الإدارة</h3>
-      <input id="pinInput" placeholder="الرمز الافتراضي 1234" />
-      <div class="toolbar" style="justify-content:flex-end;margin-top:12px">
-        <button class="btn" value="cancel">إلغاء</button>
-        <button class="btn accent" value="default">تأكيد</button>
-      </div>
-    </form>
-  </dialog>
-
-  <input type="file" id="filePicker" accept="application/json" hidden />
-
+  <a id="whatsappFloat" class="float whatsapp" href="#">🟢</a>
+  <button id="scrollTop" class="float scrolltop">↑</button>
   <script src="script.js"></script>
 </body>
 </html>
