@@ -194,7 +194,7 @@ nameForm?.addEventListener('submit', (e)=>{
   const lines = cart.map(c=>`- ${c.name} x${c.qty} = ${c.price*c.qty} ج.م`).join('%0A');
   const total = cartTotal().toFixed(2);
   const msg = `طلب جديد من ${name}%0A${lines}%0Aالإجمالي: ${total} ج.م`;
-  const wa = (config.waNumber||'201234567890').replace(/[^0-9]/g,'');
+  const wa = (config.waNumber||'201093419757').replace(/[^0-9]/g,'');
   const url = `https://wa.me/${wa}?text=${msg}`;
   window.open(url,'_blank');
   nameModal.close();
